@@ -1,4 +1,4 @@
-import { BOOK } from "./actionsTypes"
+import { BOOK, DELETE } from "./actionsTypes"
 
 const initalState = {
     booking: [
@@ -21,6 +21,12 @@ const flightBookingReducer = (state = initalState, action) => {
                 // ...state,
                 booking: [ ...state.booking ,action.payload]
 
+            }
+        case DELETE:
+            const newBooking = state.booking.filter(item => item.id !== parseInt(action.payload))
+            console.log(newBooking);
+            return {
+                booking:newBooking
             }
         default:
             return state

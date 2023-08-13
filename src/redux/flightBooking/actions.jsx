@@ -1,4 +1,4 @@
-import { BOOK } from "./actionsTypes"
+import { BOOK, DELETE } from "./actionsTypes"
 
 export const book = (value) =>{
     return {
@@ -7,3 +7,9 @@ export const book = (value) =>{
     }
 }
 
+export const deleteBooking = (id) =>{
+    return {
+        type:DELETE,
+        payload:id
+    }
+}
