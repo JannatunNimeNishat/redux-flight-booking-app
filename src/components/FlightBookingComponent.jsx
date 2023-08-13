@@ -6,8 +6,8 @@ import { book } from "../redux/flightBooking/actions";
 
 const FlightBookingComponent = () => {
     const bookingState = useSelector(state => state.booking)
-    
-    // console.log(bookingState, bookingState.length);
+
+    console.log(bookingState.length, typeof(bookingState.length));
     const dispatch = useDispatch();
     const { handleSubmit, register } = useForm();
 
@@ -108,7 +108,11 @@ const FlightBookingComponent = () => {
                                 </div>
                             </div>
 
-                            <button className="addCity" type="submit" id="lws-addCity">
+                            <button className="addCity" type="submit" id="lws-addCity" 
+                            disabled={bookingState.length>=3}
+                            // disabled = {`${ bookingState && bookingState.length >= 3 ? true : false}`}
+                            // disabled={true}
+                            >
                                 <svg width="15px" height="15px" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                                 </svg>
